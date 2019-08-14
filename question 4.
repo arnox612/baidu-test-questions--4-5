@@ -1,0 +1,26 @@
+import math
+import numpy as np
+n=input('please enter a number:')
+n=int(n)
+sqrt_n=math.ceil(n**0.5)
+
+#get the value of the (layer*2+1) of the Nr. position 
+if math.ceil(n**0.5)%2==0:
+    sqrt_n+=1
+
+#find the 4 Middle numbers in this layer of the down,left,up and right
+axis1=sqrt_n**2-(sqrt_n-1)/2
+
+axis2=axis1-(sqrt_n-1)
+
+axis3=axis2-(sqrt_n-1)
+
+axis4=axis3-(sqrt_n-1)
+
+#steps of the request Nr. to the nearest axis
+step1=min(abs(n-axis1),abs(n-axis2),abs(n-axis3),abs(n-axis4)) 
+
+#and plus the layers which is this Nr. at(steps to 1) 
+step=step1+(sqrt_n-1)/2
+
+print('step is %d'%step)
